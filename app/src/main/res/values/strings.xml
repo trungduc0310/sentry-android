@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SentryDemoSample</string>
+    <string name="crash_from_java">Crash From Java</string>
+    <string name="send_message">Send Mess</string>
+    <string name="send_user_feedback">Send User Feedback</string>
+    <string name="add_attachment">Add attachment</string>
+    <string name="capture_exception">Capture Exeption</string>
+    <string name="breadcrumb">Breadcrumb</string>
+    <string name="set_user">Set User</string>
+    <string name="unset_user">Unset User</string>
+    <string name="anr">Anr</string>
+    <string name="crash_from_native">Crash from native</string>
+    <string name="capture_from_native">Capture from native</string>
+</resources>
