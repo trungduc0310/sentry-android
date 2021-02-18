@@ -37,7 +37,7 @@ android {
 
 // Add Sentry's SDK as a dependency.
 dependencies {
-    implementation 'io.sentry:sentry-android:4.0.0'
+    implementation 'com.tcom.androidsentrysdk:androidsentry:1.0.0'
 }
   
 ```
@@ -56,52 +56,16 @@ Configuration is done via AndroidManifest.xml:
   
 ```
 
-Or, if you are manually instrumenting Sentry:
-
-```java
- import io.sentry.android.core.SentryAndroid;
-
-SentryAndroid.init(this, options -> {
-  options.setDsn("https://examplePublicKey@o0.ingest.sentry.io/0");
-});
-  
-```
-
-## Verify
-Great! Now that you’ve completed setting up the SDK, maybe you want to quickly test out how Sentry works. Start by capturing an 
-exception:
-```java
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import java.lang.Exception;
-import io.sentry.Sentry;
-
-public class MyActivity extends AppCompatActivity {
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        try {
-            throw new Exception("This is a test.");
-        } catch (Exception e) {
-            Sentry.captureException(e);
-        }
-    }
-}
-```
-Then, you can see the error in your dashboard:
-
-![](https://docs.sentry.io/static/888979c21d33485325a36fdc104055fb/2e237/android_error.png)
-
 ## Usage
 ### Capturing Errors
 In Java you can capture any exception object that you caught:
 ```java
-import io.sentry.Sentry;
 
-try {
-  aMethodThatMightFail();
-} catch(Exception e) {
-  Sentry.captureException(e);
-}
+ try {
+           int c = 2 / 0;
+     } catch (Exception ex) {
+           logCapture.captureExeption(ex);
+     }
 ```
 
 ### Capturing Messages
