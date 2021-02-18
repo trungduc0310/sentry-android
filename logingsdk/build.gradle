@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'com.jfrog.bintray'
+    id 'com.github.dcendents.android-maven'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'io.sentry:sentry-android:4.0.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+ext {
+    bintrayRepo = 'sentryAndroidSample'
+    bintrayName = 'sentryAndroidSDK'
+    publishedGroupId = 'com.tcom.androidsentrysdk'
+    libraryName = 'android-sentrysdk'
+    artifact = 'androidsentry'
+    libraryDescription = 'Your application will crash whenever a thrown exception goes uncaught. The Sentry SDK catches the exception right before the crash and builds a crash report that will persist to the disk. The SDK will try to send the report right after the crash, but since the environment may be unstable at the crash time, the report is guaranteed to send once the application is started again. If there is a fatal error in your native code, the process is similar. The crash report might send before the app crashes, but will for sure send on restart. The NDK is not only catching the unhandled exceptions but is also set as a signal handler to be able to react to the signals from OS. When the application is about to crash, an error report is created and saved to disk. The SDK will try to send the report right after the crash, but since the environment may be unstable at the crash time, the report is guaranteed to send once the application is started again.'
+    siteUrl = 'https://tcom.vn'
+    gitUrl = 'https://github.com/trungduc0310/sentry-android'
+    libraryVersion = '1.0.0'
+    developerId = 'trungduc0310'
+    developerName = 'PhamTrungDuc'
+    developerEmail = 'ducphamtrung1998@gmail.com'
+    licenseName = 'The	Apache	Software	License,	Version	2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: './installv1.gradle'
+apply from: './bintrayv1.gradle'

@@ -3,10 +3,6 @@ package com.tcom.sentrydemosample;
 import android.app.Application;
 import android.os.StrictMode;
 
-import io.sentry.android.core.SentryAndroid;
-
-// import io.sentry.android.core.SentryAndroid;
-
 /**
  * Apps. main Application.
  */

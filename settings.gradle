@@ -1,2 +1,3 @@
+include ':logingsdk'
 include ':app'
 rootProject.name = "SentryDemoSample"
