@@ -62,17 +62,17 @@ Configuration is done via AndroidManifest.xml:
 Users consist of a few critical pieces of information that construct a unique identity in Sentry. Each of these is optional, but one 
 must be present for the Sentry SDK to capture the user:
 
-id
+#### id
 Your internal identifier for the user.
 
-username
+#### username
 The username. Typically used as a better label than the internal id.
 
-email
+#### email
 An alternative, or addition, to the username. Sentry is aware of email addresses and can display things such as Gravatars and unlock 
 messaging capabilities.
 
-ip_address
+#### ip_address
 The user's IP address. If the user is unauthenticated, Sentry uses the IP address as a unique identifier for the user. Sentry will 
 attempt to pull this from the HTTP request data, if available. Set to "{{auto}}" to let Sentry infer the IP address from the connection.
 
